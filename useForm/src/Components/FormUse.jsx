@@ -80,7 +80,15 @@ const FormUse = () => {
           <input
             type="email"
             name="email"
-            {...register("email", { required: "Email Required!" })}
+            {...register("email", { 
+              required: "Email Required!",
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: "Invalid Email",
+              }
+            }
+              
+              )}
           />
           {errors.email && <p className="err">{errors.email.message}</p>}
 
